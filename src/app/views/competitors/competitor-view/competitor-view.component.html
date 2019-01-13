@@ -1,0 +1,21 @@
+
+<div class="is-clearfix">
+
+  <a class="button is-success is-pulled-right"
+      (click)="addCompetitor()"
+  >
+    <span class="fa fa-plus"></span>
+     ADD
+  </a>
+</div>
+
+<p class="has-text-centered">List of competitors</p>
+
+
+
+<app-competitor-item
+        *ngFor=" let competitor of competitors$ | async"
+        [competitor]="competitor"
+        (onCompetitorUpdated)="updateCompetitor($event)"
+        (onCompetitorDeleted)="deleteCompetitor($event)"
+>
