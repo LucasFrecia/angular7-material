@@ -1,20 +1,4 @@
-.card{
-  margin-bottom: 15px;
-}
-
-.connected {
-  color: green;
-
-}
-
-.connected:after {
-  content: 'CONNECTED';
-}
-
-.disconnected {
-  color: red;
-}
-
-.disconnected:after {
-  content: 'DISONNECTED';
+.item-container {
+  margin-left: auto;
+  margin-right: auto;
 }

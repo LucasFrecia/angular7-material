@@ -12,12 +12,12 @@
 <p class="has-text-centered">List of competitors</p>
 
 
-
-<app-competitor-item
-        *ngFor=" let competitor of competitors$ | async"
-        [competitor]="competitor"
-        (onCompetitorUpdated)="updateCompetitor($event)"
-        (onCompetitorDeleted)="deleteCompetitor($event)"
->
-</app-competitor-item>
-
+<div class="item-container" >
+  <app-competitor-item
+          *ngFor=" let competitor of competitors$ | async"
+          [competitor]="competitor"
+          (onCompetitorUpdated)="updateCompetitor($event)"
+          (onCompetitorDeleted)="deleteCompetitor($event)"
+  >
+  </app-competitor-item>
+</div>

@@ -1,8 +1,8 @@
-<mat-card class="example-card">
+<mat-card class="card" @items>
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{competitor.Nombre}}</mat-card-title>
-    <mat-card-subtitle>{{competitor.Id}}</mat-card-subtitle>
+    <mat-card-subtitle><b>ID:</b> {{competitor.Id}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <mat-list role="list">
@@ -18,7 +18,7 @@
     </mat-list>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button (click)="toggleEditMode()" >Editar</button>
-    <button (click)="deleteCompetitor()" >Borrar</button>
+    <button mat-raised-button (click)="toggleEditMode()" color="accent" >Editar</button>
+    <button mat-raised-button (click)="deleteCompetitor()" color="warn" >Borrar</button>
   </mat-card-actions>
 </mat-card>
