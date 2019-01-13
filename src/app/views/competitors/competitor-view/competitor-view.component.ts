@@ -25,7 +25,7 @@ export class ComponentViewComponent implements OnInit, OnDestroy {
     this.competitors$ = this.store.select(fromCompetitorsStore.getEntitiesArray);
 
     // populate localstorage
-    this.subscribers.updatedTrip$ = this.store
+    this.subscribers.populateStorage$ = this.store
     .select(fromCompetitorsStore.getEntites)
     .subscribe(competitors => {
       localStorage.setItem('competitors_ids', JSON.stringify(Object.keys(competitors)));
