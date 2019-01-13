@@ -13,14 +13,14 @@ import { LoadingService } from '../services/loading.service';
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
   ],
   declarations: [],
   exports: [
-    MaterialModule
+    MaterialModule,
   ],
   providers: [
-    LoadingService
+    LoadingService,
   ]
 })
 export class CoreModule {

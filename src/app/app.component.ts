@@ -1,39 +1,18 @@
 import { Component, Inject } from '@angular/core';
 import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition
-} from '@angular/animations';
-import {
   NavigationCancel,
   NavigationEnd,
   NavigationError,
   NavigationStart,
   Router
 } from '@angular/router';
+import { popin } from './core/animations/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [
-    trigger('title', [
-      transition(':enter', [
-        style({ transform: 'scale(0.5)', opacity: 0 }),  // initial
-        animate('1s cubic-bezier(.8, -0.6, 0.2, 1.5)',
-          style({ transform: 'scale(1)', opacity: 1 }))  // final
-      ])
-    ]),
-    trigger('toolbar-title-enter', [
-      transition(':enter', [
-        style({  'margin-left': '-200px', opacity: 0 }),  // initial
-        animate('1s cubic-bezier(.8, -0.6, 0.2, 1.5)',
-          style({ 'margin-left': '0px', opacity: 1 }))  // final
-      ])
-    ])
-  ]
+  animations: [popin]
 })
 export class AppComponent {
   title = 'Competitors Home';

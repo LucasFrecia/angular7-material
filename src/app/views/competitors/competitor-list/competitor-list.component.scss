@@ -2,3 +2,13 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.add-btn {
+  position: fixed;
+  bottom: 35px;
+  right: 35px; 
+
+  button {
+    margin-left: 15px;
+  }
+}

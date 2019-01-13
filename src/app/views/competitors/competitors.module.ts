@@ -8,7 +8,7 @@ import * as fromCompetitorsStore from './store';
 import { EffectsModule } from '@ngrx/effects';
 import { CompetitorsEffects } from './store/effects/competitors.effects';
 import { CompetitorItemComponent } from '../../core/components/competitor-item/competitor-item.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CompetitorsService } from './services/competitors.service';
 import { MaterialModule } from '../../core/modules/material.module';
 
@@ -16,6 +16,7 @@ import { MaterialModule } from '../../core/modules/material.module';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     CompetitorsRoutingModule,
     StoreModule.forFeature('competitors', fromCompetitorsStore.reducers),

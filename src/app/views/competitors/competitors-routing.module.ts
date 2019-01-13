@@ -11,8 +11,13 @@ const routes: Routes = [
     component: CompetitorListComponent
   },
   {
-    path: '/:Id',
+    path: 'edit/:Id',
     component: ComponentViewComponent
+  },
+  {
+    path: 'new',
+    component: ComponentViewComponent,
+    pathMatch: 'full'
   }
 ];
 

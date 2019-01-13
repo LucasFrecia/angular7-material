@@ -18,9 +18,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   imports: [
     MatIconModule,
+    MatCardModule,
     MatTooltipModule,
     MatButtonModule,
-    MatCardModule,
     MatMenuModule,
     MatToolbarModule,
     MatInputModule,
@@ -36,9 +36,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
   declarations: [],
   exports: [
     MatIconModule,
+    MatCardModule,
     MatTooltipModule,
     MatButtonModule,
-    MatCardModule,
     MatMenuModule,
     MatToolbarModule,
     MatInputModule,

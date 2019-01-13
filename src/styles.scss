@@ -2,3 +2,9 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.card {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 400px;
+    margin-bottom: 15px;
+  }

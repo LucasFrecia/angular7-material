@@ -1,21 +1,45 @@
+<mat-card class="card" @enter-item >
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Create a new Competitor:</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="" 
+      #form="ngForm" >
+      <mat-form-field class="example-full-width">
+        <input 
+              matInput 
+              placeholder="Email" 
+              [formControl]="emailFormControl"
+              [errorStateMatcher]="matcher">
+        <mat-error 
+          *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error 
+          *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
 
-<div class="is-clearfix">
 
-  <a class="button is-success is-pulled-right"
-      (click)="addCompetitor()"
-  >
-    <span class="fa fa-plus"></span>
-     ADD
-  </a>
-</div>
-
-<p class="has-text-centered">List of competitors</p>
-
-
-
-<app-competitor-item
-        *ngFor=" let competitor of competitors$ | async"
-        [competitor]="competitor"
-        (onCompetitorUpdated)="updateCompetitor($event)"
-        (onCompetitorDeleted)="deleteCompetitor($event)"
->
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+      <button
+            (click)="addCompetitor()"
+            [disabled]="!form.valid"
+            mat-raised-button
+            color="primary"
+          >
+            Create
+          </button>
+      <button
+            (click)="resetForm()"
+            mat-raised-button
+            color="warn"
+          >
+            Reset
+          </button>
+  </mat-card-actions>
+</mat-card>
