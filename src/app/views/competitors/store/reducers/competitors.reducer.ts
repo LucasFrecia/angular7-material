@@ -4,6 +4,32 @@ import {Competitor} from '../../../../core/models/competitor';
 import * as competitorsActions from '../actions/competitors.actions';
 import {createSelector} from '@ngrx/store';
 
+const competitors = {
+ '1': {
+  Id: '1',
+  Codigo: 'play',
+  Nombre: 'Batistuta',
+  Calle: '9 de Julio',
+  Latitud: -34.6053348,
+  Longitud: -58.3919066,
+  Marcador: true,
+  Observar: false,
+  MarcaId: 1,
+  ZonaDePrecioId: 2
+},
+'2': {
+  Id: '2',
+  Codigo: 'play',
+  Nombre: 'Crespo',
+  Calle: '9 de Julio',
+  Latitud: -34.6053348,
+  Longitud: -58.3919066,
+  Marcador: false,
+  Observar: true,
+  MarcaId: 2,
+  ZonaDePrecioId: 1
+}};
+
 export interface State {
   ids: string[];
   entities: { [Id: string]: Competitor };
@@ -11,8 +37,8 @@ export interface State {
 }
 
 export const INIT_STATE: State = {
-  ids: [],
-  entities: {},
+  ids: JSON.parse(localStorage.getItem('competitors_ids')) || Object.keys(competitors),
+  entities: JSON.parse(localStorage.getItem('competitors')) || competitors,
   selectedCompetitorId: null
 };
 

@@ -2,7 +2,7 @@
 
 import {RouterModule, Routes} from '@angular/router';
 import {CompetitorListComponent} from './competitor-list/competitor-list.component';
-import {ComponentViewComponent} from './competitor-view/competitor.view.component';
+import {ComponentViewComponent} from './competitor-view/competitor-view.component';
 import {NgModule} from '@angular/core';
 
 const routes: Routes = [

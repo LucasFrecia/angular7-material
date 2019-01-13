@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CompetitorListComponent } from './competitor-list/competitor-list.component';
-import { ComponentViewComponent } from './competitor-view/competitor.view.component';
+import { ComponentViewComponent } from './competitor-view/competitor-view.component';
 import { CompetitorsRoutingModule } from './competitors-routing.module';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
@@ -10,11 +10,13 @@ import { CompetitorsEffects } from './store/effects/competitors.effects';
 import { CompetitorItemComponent } from '../../core/components/competitor-item/competitor-item.component';
 import { FormsModule } from '@angular/forms';
 import { CompetitorsService } from './services/competitors.service';
+import { MaterialModule } from '../../core/modules/material.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    MaterialModule,
     CompetitorsRoutingModule,
     StoreModule.forFeature('competitors', fromCompetitorsStore.reducers),
     EffectsModule.forFeature([CompetitorsEffects])

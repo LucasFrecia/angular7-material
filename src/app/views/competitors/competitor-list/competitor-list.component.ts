@@ -4,7 +4,7 @@ import { Competitor } from '../../../core/models/competitor';
 import { Store } from '@ngrx/store';
 import * as fromCompetitorsStore from '../store';
 import * as competitorsActions from '../store/actions/competitors.actions';
-import { ComponentViewComponent } from '../competitor-view/competitor.view.component';
+import { ComponentViewComponent } from '../competitor-view/competitor-view.component';
 
 @Component({
   selector: 'app-competitor-list',

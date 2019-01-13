@@ -2,12 +2,12 @@ import {NgModule} from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule,
         MatButtonModule,
-        MatCardModule,
         MatMenuModule,
         MatToolbarModule,
         MatSelectModule,
         MatProgressBarModule,
         MatAutocompleteModule} from '@angular/material';
+import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatInputModule} from '@angular/material/input';
