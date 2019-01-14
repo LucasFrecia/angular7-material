@@ -1,28 +1,15 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
 
 @Injectable()
 export class CompetitorsService {
-
-
-
-  constructor() {
-
-
-  }
+  constructor() {}
 
   // These methods will be called by ngrx effects (do not use directly in the components)
-  listCompetitors() {
+  listCompetitors() {}
 
-  }
+  addCompetitor(competitor) {}
 
-  addCompetitor(competitor) {
-  }
+  updateCompetitor(competitor) {}
 
-  updateCompetitor(competitor) {
-  }
-
-  deleteCompetitor(competitor) {
-  }
-
+  deleteCompetitor(competitor) {}
 }

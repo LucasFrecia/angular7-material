@@ -17,7 +17,6 @@ export class LoadingService {
    * @data type: boolean
    */
   changeLoadingStatus(data: boolean) {
-      console.log(data);
     this.isLoading = data;
     this.loadingChange$.next(this.isLoading);
   }

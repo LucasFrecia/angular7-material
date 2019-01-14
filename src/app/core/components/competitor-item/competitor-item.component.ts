@@ -3,16 +3,10 @@ import {
   Component,
   EventEmitter,
   Input,
-  Output
+  Output,
+  AfterViewInit
 } from '@angular/core';
 import { Competitor } from '../../models/competitor';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition
-} from '@angular/animations';
 import { popin } from '../../../core/animations/animations';
 
 @Component({
@@ -23,19 +17,24 @@ import { popin } from '../../../core/animations/animations';
   animations: [popin]
 })
 
-export class CompetitorItemComponent {
+export class CompetitorItemComponent implements AfterViewInit {
 
   @Input() competitor: Competitor;
   @Output() competitorUpdated = new EventEmitter<Competitor>();
   @Output() competitorDeleted = new EventEmitter<Competitor>();
 
   public editMode = false;
+  public competitorCopy: Competitor;
 
   constructor() {
   }
 
+  ngAfterViewInit() {
+    this.competitorCopy = JSON.parse(JSON.stringify(this.competitor));
+  }
+
   updateCompetitor() {
-    this.competitorUpdated.emit(this.competitor);
+    this.competitorUpdated.emit(this.competitorCopy);
     this.toggleEditMode();
   }
 

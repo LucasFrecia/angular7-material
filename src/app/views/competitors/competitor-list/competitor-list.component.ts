@@ -4,7 +4,7 @@ import { Competitor } from '../../../core/models/competitor';
 import { Store } from '@ngrx/store';
 import * as fromCompetitorsStore from '../store';
 import { ComponentViewComponent } from '../competitor-view/competitor-view.component';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-competitor-list',
