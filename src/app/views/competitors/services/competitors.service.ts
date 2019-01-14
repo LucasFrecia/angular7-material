@@ -11,7 +11,6 @@ export class CompetitorsService {
 
   }
 
-
   // These methods will be called by ngrx effects (do not use directly in the components)
   listCompetitors() {
 
