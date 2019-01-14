@@ -14,6 +14,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
 
+## Install dependencies
+
+Run `npm install` or `yarn install`
+
+## Go to directory
+
+`$cd angular7-material`
+
 ## Run server
 
 Run `ng serve --prod` for a server with AOT compilation and optimization for a small bundle. Navigate to `http://localhost:4200/`.
