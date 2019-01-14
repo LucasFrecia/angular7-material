@@ -40,13 +40,11 @@
           [(ngModel)]="competitor.Codigo"
           type="text"
           placeholder="Insert code">
-        <mat-hint>Maximum of 9 chars</mat-hint>
       </mat-form-field>
 
       <mat-form-field appearance="outline" style="padding: 15px;">
         <mat-label>Name</mat-label>
         <input
-          appIsValidCompetitorId
           (emitIsValdID)="idValidator($event)"
           matInput
           placeholder="Insert your name"
@@ -64,7 +62,6 @@
       <mat-form-field appearance="outline" style="padding: 15px;">
         <mat-label>Street</mat-label>
         <input
-          appIsValidCompetitorId
           (emitIsValdID)="idValidator($event)"
           matInput
           maxlenth="30"
@@ -118,9 +115,6 @@
 
       <section style="padding: 15px;">
         <mat-slide-toggle
-          class="example-margin"
-          [color]="color"
-          [checked]="checked"
           name="Marcador"
           [(ngModel)]="competitor.Marcador">
           Marker
@@ -129,9 +123,6 @@
 
       <section appearance="outline" style="padding: 15px;">
         <mat-slide-toggle
-          class="example-margin"
-          [color]="color"
-          [checked]="checked"
           name="Observar"
           [(ngModel)]="competitor.Observar">
           Observer
@@ -215,16 +206,15 @@ export interface Competitor {
   MarcaId: 2,
   ZonaDePrecioId: 1
 }
-{"Id":"122",
-"Codigo":"fddsfdsfs",
-"Nombre":"dfdsfdsfd",
-"Calle":"dsadsdsadsadsa",
-"Latitud":44.58585,
-"Longitud":33.528282,
+{"Id":"2121",
+"Codigo":"fdsf",
+"Nombre":"fdasfd",
+"Calle":"dfasdfas",
+"Latitud":14.22525,
+"Longitud":25.5,
 "Marcador":true,
-"Observar":true,
-"MarcaId":"321321313254",
-"ZonaDePrecioId":"1"}
+"MarcaId":321321313254,
+"ZonaDePrecioId":1}
 
 
 

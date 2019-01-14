@@ -17,7 +17,7 @@
           *ngFor=" let competitor of competitors$ | async"
           [competitor]="competitor"
           (onCompetitorUpdated)="updateCompetitor($event)"
-          (onCompetitorDeleted)="deleteCompetitor($event)"
+          (competitorDeleted)="deleteCompetitor($event)"
   >
   </app-competitor-item>
 </div>

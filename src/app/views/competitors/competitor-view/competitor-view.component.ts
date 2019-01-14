@@ -62,31 +62,35 @@ export class ComponentViewComponent implements OnInit, OnDestroy {
     });
   }
 
-  public addCompetitor() {
+  public addCompetitor(): void {
     this.competitor.Id = `${this.competitor.Id}`;
     this.competitor.MarcaId = +this.competitor.MarcaId;
     this.competitor.ZonaDePrecioId = +this.competitor.ZonaDePrecioId;
 
-    this.store.dispatch(new competitorsActions.AddCompetitor(this.competitor));
+    const sendObject =  Object.assign({}, this.competitor);
+
+    this.store.dispatch(new competitorsActions.AddCompetitor(sendObject));
+
     this.resetForm();
   }
 
-  public updateCompetitor(competitor: Competitor) {
+  public updateCompetitor(competitor: Competitor): void {
     this.store.dispatch(new competitorsActions.UpdateCompetitor(competitor));
   }
 
-  public deleteCompetitor(competitor: Competitor) {
+  public deleteCompetitor(competitor: Competitor): void {
     const r = confirm('Are you sure?');
     if (r) {
       this.store.dispatch(new competitorsActions.DeleteCompetitor(competitor));
     }
   }
 
-  public resetForm() {
+  public resetForm(): void {
     this.form.resetForm();
   }
 
-  public idValidator(e) {
+
+  public idValidator(e: boolean): void {
     this.form.controls['Id'].setErrors({'incorrect': e});
     this.isValidIdInput = e;
   }

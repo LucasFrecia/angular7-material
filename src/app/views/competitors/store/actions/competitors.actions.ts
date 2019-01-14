@@ -8,6 +8,7 @@ export const COMPETITORS_LISTED  = '[Competitors] Listed';
 export const ADD_COMPETITOR      = '[Competitors] Add';
 export const UPDATE_COMPETITOR   = '[Competitors] Update';
 export const DELETE_COMPETITOR   = '[Competitors] Delete';
+export const COMPETITOR_ADDED    = '[Competitors] Added';
 
 export class ListCompetitors implements Action {
   readonly type = LIST_COMPETITORS;
@@ -20,6 +21,11 @@ export class CompetitorsListed implements Action {
 
 export class AddCompetitor implements Action {
   readonly type = ADD_COMPETITOR;
+  constructor(public payload?: Competitor) {}
+}
+
+export class CompetitorAdded implements Action {
+  readonly type = COMPETITOR_ADDED;
   constructor(public payload?: Competitor) {}
 }
 
@@ -37,5 +43,6 @@ export type All =
     ListCompetitors
     | CompetitorsListed
     | AddCompetitor
+    | CompetitorAdded
     | UpdateCompetitor
     | DeleteCompetitor;

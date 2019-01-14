@@ -36,6 +36,6 @@ export class CompetitorItemComponent {
   }
 
   deleteCompetitor() {
-
+    this.competitorDeleted.emit(this.competitor);
   }
 }

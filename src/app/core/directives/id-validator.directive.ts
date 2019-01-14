@@ -36,7 +36,7 @@ export class IdValidatorDirective implements Validator, OnChanges {
   validate(control: AbstractControl) {
 
     const value = control.value;
-    console.log(this.competitorIds);
+
     const isValdID = this.competitorIds.filter(it => {
         return +it === +value;
     }).length > 0 ? false : true;
