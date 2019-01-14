@@ -72,7 +72,6 @@ export function reducer(state = INIT_STATE, action: competitorsActions.All): Sta
 
     }
 
-
     case competitorsActions.UPDATE_COMPETITOR : {
 
       const newState = Object.assign({}, state);
@@ -82,6 +81,8 @@ export function reducer(state = INIT_STATE, action: competitorsActions.All): Sta
         newState.entities[action.payload.Id] = action.payload; // create it
       } else {
         newState.entities[action.payload.Id] = Object.assign({}, {...competitor}, {...action.payload});
+        localStorage.setItem('competitors_ids', JSON.stringify(newState.ids));
+        localStorage.setItem('competitors', JSON.stringify(newState.entities));
       }
       return newState;
     }
@@ -97,6 +98,9 @@ export function reducer(state = INIT_STATE, action: competitorsActions.All): Sta
       const idIndex = newState.ids.indexOf(action.payload.Id);
       newState.ids.splice(idIndex, 1);
       delete newState.entities[action.payload.Id];
+
+      localStorage.setItem('competitors_ids', JSON.stringify(newState.ids));
+      localStorage.setItem('competitors', JSON.stringify(newState.entities));
 
       return newState;
     }
