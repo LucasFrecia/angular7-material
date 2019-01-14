@@ -29,10 +29,22 @@ export class CompetitorItemComponent {
   @Output() competitorUpdated = new EventEmitter<Competitor>();
   @Output() competitorDeleted = new EventEmitter<Competitor>();
 
-  constructor() {}
+  public editMode = false;
+
+  constructor() {
+  }
 
   updateCompetitor() {
+    this.competitorUpdated.emit(this.competitor);
+    this.toggleEditMode();
+  }
 
+  toggleEditMode() {
+    this.editMode = !this.editMode;
+    if (!this.editMode) {
+      // reset competitor value on edit cancel
+      this.competitor = this.competitor;
+    }
   }
 
   deleteCompetitor() {

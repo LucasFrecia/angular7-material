@@ -74,7 +74,8 @@ export function reducer(state = INIT_STATE, action: competitorsActions.All): Sta
 
 
     case competitorsActions.UPDATE_COMPETITOR : {
-
+      console.log('IN UPDATE COMPETITOR...');
+      
       const newState = Object.assign({}, state);
       const competitor = newState.entities[action.payload.Id];
 

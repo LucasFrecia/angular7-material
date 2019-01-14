@@ -1,24 +1,95 @@
 <mat-card class="card" @enter-item>
-  <mat-card-header>
+  
+  <mat-card-header *ngIf="!editMode" >
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{competitor.Nombre}}</mat-card-title>
     <mat-card-subtitle><b>ID:</b> {{competitor.Id}}</mat-card-subtitle>
   </mat-card-header>
+  
+  <mat-card-header *ngIf="editMode" >
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Name" [value]="competitor.Nombre">
+      </mat-form-field> 
+    </mat-card-title>
+    <mat-card-subtitle><b>ID:</b> {{competitor.Id}}</mat-card-subtitle>
+  </mat-card-header>
+  
   <mat-card-content>
-    <mat-list role="list">
-      <mat-list-item role="listitem">Codigo: {{competitor.Codigo}}</mat-list-item>
-      <mat-list-item role="listitem">Calle: {{competitor.Calle}}</mat-list-item>
-      <mat-list-item role="listitem">Latitud: {{competitor.Latitud}}</mat-list-item>
+
+    <mat-list role="list" *ngIf="!editMode" >
+      <mat-list-item role="listitem">Code: {{competitor.Codigo}}</mat-list-item>
+      <mat-list-item role="listitem">Street: {{competitor.Calle}}</mat-list-item>
+      <mat-list-item role="listitem">Latitude: {{competitor.Latitud}}</mat-list-item>
       <mat-list-item role="listitem">Longitud: {{competitor.Longitud}}</mat-list-item>
-      <mat-list-item role="listitem">Marcador: {{competitor.Marcador}}</mat-list-item>
-      <mat-list-item role="listitem">Observar: {{competitor.Observar}}</mat-list-item>
-      <mat-list-item role="listitem">MarcaId: {{competitor.MarcaId}}</mat-list-item>
+      <mat-list-item role="listitem">Marker: {{competitor.Marcador}}</mat-list-item>
+      <mat-list-item role="listitem">Observer: {{competitor.Observar}}</mat-list-item>
+      <mat-list-item role="listitem">Brand Id: {{competitor.MarcaId}}</mat-list-item>
       <mat-list-item role="listitem">Calle: {{competitor.Calle}}</mat-list-item>
       <mat-list-item role="listitem">ZonaDePrecioId: {{competitor.ZonaDePrecioId}}</mat-list-item>
     </mat-list>
+
+    <mat-list role="list" *ngIf="editMode" >
+      
+      <mat-list-item role="listitem">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Code" [value]="competitor.Codigo">
+        </mat-form-field>      
+      </mat-list-item>
+
+      <mat-list-item role="listitem">
+              <mat-form-field class="example-full-width">
+          <input matInput placeholder="Street" [value]="competitor.Calle">
+        </mat-form-field>  
+      </mat-list-item>
+  
+      <mat-list-item role="listitem">
+              <mat-form-field class="example-full-width">
+          <input matInput placeholder="Latitude" [value]="competitor.Latitud">
+        </mat-form-field>  
+      </mat-list-item>
+  
+      <mat-list-item role="listitem">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Longitude" [value]="competitor.Longitud">
+        </mat-form-field>  
+      </mat-list-item>
+
+      <mat-list-item role="listitem">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Marker" [value]="competitor.Marcador">
+        </mat-form-field>        
+      </mat-list-item>
+
+      <mat-list-item role="listitem">
+         <mat-form-field class="example-full-width">
+          <input matInput placeholder="Observer" [value]="competitor.Observar">
+        </mat-form-field>       
+      </mat-list-item>
+
+      <mat-list-item role="listitem">
+          <mat-form-field class="example-full-width">
+          <input matInput placeholder="Brand ID" [value]="competitor.MarcaId">
+        </mat-form-field>      
+      </mat-list-item>
+
+      <mat-list-item role="listitem">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Price Zone" [value]="competitor.ZonaDePrecioId">
+        </mat-form-field>       
+      </mat-list-item>
+    
+    </mat-list>
   </mat-card-content>
-  <mat-card-actions>
+
+  <mat-card-actions *ngIf="!editMode" >
     <button mat-raised-button (click)="toggleEditMode()" color="accent" >Edit</button>
     <button mat-raised-button (click)="deleteCompetitor()" color="warn" >Delete</button>
+  </mat-card-actions>
+
+  <mat-card-actions *ngIf="editMode" >
+    <button mat-raised-button (click)="updateCompetitor()" color="accent" >Save</button>
+    <button mat-raised-button (click)="toggleEditMode()" color="warn" >Cancel</button>
   </mat-card-actions>
 </mat-card>

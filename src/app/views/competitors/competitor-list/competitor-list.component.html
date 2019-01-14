@@ -2,7 +2,7 @@
   <app-competitor-item
           *ngFor=" let competitor of competitors$ | async"
           [competitor]="competitor"
-          (onCompetitorUpdated)="updateCompetitor($event)"
+          (competitorUpdated)="updateCompetitor($event)"
           (competitorDeleted)="deleteCompetitor($event)"
   >
   </app-competitor-item>

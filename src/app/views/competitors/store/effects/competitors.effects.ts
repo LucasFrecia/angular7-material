@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { Action } from '@ngrx/store';
-import {Observable, of, } from 'rxjs';
+import { of } from 'rxjs';
 import { CompetitorsService } from '../../services/competitors.service';
 import * as competitorsActions from '../actions/competitors.actions';
 import { map, tap, startWith, switchMap } from 'rxjs/operators';
@@ -31,8 +30,12 @@ export class CompetitorsEffects {
   @Effect()
   updateCompetitor$ = this.actions$.pipe(
     ofType(competitorsActions.UPDATE_COMPETITOR),
-    map((action: competitorsActions.UpdateCompetitor) => action.payload),
-    tap(competitor => this.competitorsService.updateCompetitor(competitor))
+    map((action: competitorsActions.UpdateCompetitor) => {
+      return action.payload;
+    }),
+    switchMap(competitor =>
+      of(new SnackbarOpen({ message: 'Competitor Updated!!!' }))
+    )
   );
 
   @Effect()
