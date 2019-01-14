@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
-import {Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { CompetitorsService } from '../../services/competitors.service';
 import * as competitorsActions from '../actions/competitors.actions';
-import { map, tap, startWith } from 'rxjs/operators';
+import { map, tap, startWith, switchMap } from 'rxjs/operators';
+import { SnackbarOpen } from '../../../../core/store/actions/snackbar.actions';
 
 @Injectable()
 export class CompetitorsEffects {
@@ -16,12 +17,15 @@ export class CompetitorsEffects {
     tap(() => this.competitorsService.listCompetitors())
   );
 
-  @Effect({ dispatch: false })
+  @Effect()
   setIsLoading$ = this.actions$.pipe(
     ofType(competitorsActions.ADD_COMPETITOR),
     map((action: competitorsActions.AddCompetitor) => {
       return action.payload;
-    })
+    }),
+    switchMap(competitor =>
+      of(new SnackbarOpen({ message: 'Competitor created!!!' }))
+  )
   );
 
   @Effect()

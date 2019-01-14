@@ -66,9 +66,9 @@ export class ComponentViewComponent implements OnInit, OnDestroy {
     this.competitor.Id = `${this.competitor.Id}`;
     this.competitor.MarcaId = +this.competitor.MarcaId;
     this.competitor.ZonaDePrecioId = +this.competitor.ZonaDePrecioId;
-    console.log('Creating Competitor...');
-    console.log(this.competitor);
+
     this.store.dispatch(new competitorsActions.AddCompetitor(this.competitor));
+    this.resetForm();
   }
 
   public updateCompetitor(competitor: Competitor) {
@@ -83,14 +83,12 @@ export class ComponentViewComponent implements OnInit, OnDestroy {
   }
 
   public resetForm() {
-    console.log('Resetting form...');
     this.form.resetForm();
   }
 
   public idValidator(e) {
     this.form.controls['Id'].setErrors({'incorrect': e});
     this.isValidIdInput = e;
-    console.log('final valie: ' + e);
   }
 
   ngOnDestroy() {
