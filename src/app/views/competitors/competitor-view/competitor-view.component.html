@@ -11,7 +11,7 @@
     <form class="" 
       #form="ngForm" >
 
-      <mat-form-field appearance="outline" style="padding: 15px;">
+      <mat-form-field appearance="outline" >
         <mat-label>ID</mat-label>
         <input
           appIsValidCompetitorId
@@ -33,7 +33,7 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" style="padding: 15px;">
+      <mat-form-field appearance="outline" >
         <mat-label>Code</mat-label>
         <input
           matInput
@@ -42,9 +42,13 @@
           [(ngModel)]="competitor.Codigo"
           type="text"
           placeholder="Insert code">
+        <mat-error 
+          *ngIf="competitorFormControl.hasError('required')">
+          Code is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" style="padding: 15px;">
+      <mat-form-field appearance="outline" >
         <mat-label>Name</mat-label>
         <input
           (emitIsValdID)="idValidator($event)"
@@ -61,7 +65,7 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" style="padding: 15px;">
+      <mat-form-field appearance="outline" >
         <mat-label>Street</mat-label>
         <input
           (emitIsValdID)="idValidator($event)"
@@ -79,7 +83,7 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" style="padding: 15px;">
+      <mat-form-field appearance="outline" >
         <mat-label>Latitude</mat-label>
         <input
           type="number"
@@ -97,7 +101,7 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" style="padding: 15px;">
+      <mat-form-field appearance="outline" >
         <mat-label>Longitude</mat-label>
         <input
           type="number"
@@ -115,7 +119,7 @@
         </mat-error>
       </mat-form-field>
 
-      <section style="padding: 15px;">
+      <section >
         <mat-slide-toggle
           name="Marcador"
           [(ngModel)]="competitor.Marcador">
@@ -123,7 +127,7 @@
         </mat-slide-toggle>
       </section>
 
-      <section appearance="outline" style="padding: 15px;">
+      <section appearance="outline" >
         <mat-slide-toggle
           name="Observar"
           [(ngModel)]="competitor.Observar">
@@ -131,7 +135,7 @@
         </mat-slide-toggle>
       </section>
 
-      <mat-form-field style="padding: 15px;"> 
+      <mat-form-field appearance="outline" > 
         <select
           matNativeControl
           name="MarcaId"
@@ -140,12 +144,12 @@
           placeholder="Brand ID"
           [errorStateMatcher]="matcher" >
           <option value=""></option>
-          <option value="321321313254" selected>321321313254</option>
-          <option value="765747655462" selected>765747655462</option>
+          <option value="321321313254" >321321313254</option>
+          <option value="765747655462" >765747655462</option>
         </select>
       </mat-form-field>
 
-      <mat-form-field style="padding: 15px;" >
+      <mat-form-field appearance="outline"  >
         <select
           matNativeControl
           name="ZonaDePrecioId"
@@ -154,8 +158,8 @@
           placeholder="Price Range"
           [errorStateMatcher]="matcher">
           <option value=""></option>
-          <option value="1" selected>$ 100.000 - 500.000</option>
-          <option value="2" selected>$ 500.000 - 800.000</option>
+          <option value="1" >$ 100.000 - 500.000</option>
+          <option value="2" >$ 500.000 - 800.000</option>
         </select>
       </mat-form-field>
 
@@ -179,58 +183,4 @@
           </button>
   </mat-card-actions>
 </mat-card>
-
-
 </mat-dialog-content>
-
-
-<!--
-  Id: string;
-  Codigo: string;
-  Nombre: string;
-  Calle: string;
-  Latitud: number;
-  Longitud: number;
-  Marcador: boolean;
-  Observar: boolean;
-  MarcaId: number;
-  ZonaDePrecioId: number;
-}
-export interface Competitor {
-  Id: '2',
-  Codigo: 'play',
-  Nombre: 'Crespo',
-  Calle: '9 de Julio',
-  Latitud: -34.6053348,
-  Longitud: -58.3919066,
-  Marcador: false,
-  Observar: true,
-  MarcaId: 2,
-  ZonaDePrecioId: 1
-}
-{"Id":"2121",
-"Codigo":"fdsf",
-"Nombre":"fdasfd",
-"Calle":"dfasdfas",
-"Latitud":14.22525,
-"Longitud":25.5,
-"Marcador":true,
-"MarcaId":321321313254,
-"ZonaDePrecioId":1}
-
-
-
-interface Marcas {
-  Id: number;
-  Codigo: string;
-  Nombre: string;
-}
-
-interface ZonaDePrecios {
-  Id: number;
-  Codigo: string;
-  Nombre: string;
-}
-
-
--->
