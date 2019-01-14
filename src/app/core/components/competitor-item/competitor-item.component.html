@@ -19,18 +19,18 @@
   <mat-card-content>
 
     <mat-list role="list" *ngIf="!editMode" >
-      <mat-list-item role="listitem">Code: {{competitor.Codigo}}</mat-list-item>
-      <mat-list-item role="listitem">Street: {{competitor.Calle}}</mat-list-item>
-      <mat-list-item role="listitem">Latitude: {{competitor.Latitud}}</mat-list-item>
-      <mat-list-item role="listitem">Longitud: {{competitor.Longitud}}</mat-list-item>
-      <mat-list-item role="listitem">Marker: {{competitor.Marcador}}</mat-list-item>
-      <mat-list-item role="listitem">Observer: {{competitor.Observar}}</mat-list-item>
-      <mat-list-item role="listitem">Brand Id: {{competitor.MarcaId}}</mat-list-item>
-      <mat-list-item role="listitem">Calle: {{competitor.Calle}}</mat-list-item>
-      <mat-list-item role="listitem">ZonaDePrecioId: {{competitor.ZonaDePrecioId}}</mat-list-item>
+      <mat-list-item role="listitem"><b>Code:  </b> {{competitor.Codigo}}</mat-list-item>
+      <mat-list-item role="listitem"><b>Street:  </b> {{competitor.Calle}}</mat-list-item>
+      <mat-list-item role="listitem"><b>Latitude:  </b> {{competitor.Latitud}}</mat-list-item>
+      <mat-list-item role="listitem"><b>Longitud:  </b> {{competitor.Longitud}}</mat-list-item>
+      <mat-list-item role="listitem"><b>Marker:  </b> {{competitor.Marcador}}</mat-list-item>
+      <mat-list-item role="listitem"><b>Observer:  </b> {{competitor.Observar}}</mat-list-item>
+      <mat-list-item role="listitem"><b>Brand Id:  </b> {{competitor.MarcaId}}</mat-list-item>
+      <mat-list-item role="listitem"><b>Calle:  </b> {{competitor.Calle}}</mat-list-item>
+      <mat-list-item role="listitem"><b>ZonaDePrecioId:  </b> {{competitor.ZonaDePrecioId}}</mat-list-item>
     </mat-list>
 
-    <mat-list role="list" *ngIf="editMode" >
+    <mat-list role="list" *ngIf="editMode" class="mat-list" >
       
       <mat-list-item role="listitem">
         <mat-form-field class="example-full-width">
@@ -39,13 +39,13 @@
       </mat-list-item>
 
       <mat-list-item role="listitem">
-              <mat-form-field class="example-full-width">
+        <mat-form-field class="example-full-width">
           <input matInput placeholder="Street" [value]="competitor.Calle" [(ngModel)]="competitorCopy.Calle">
         </mat-form-field>  
       </mat-list-item>
   
       <mat-list-item role="listitem">
-              <mat-form-field class="example-full-width">
+        <mat-form-field class="example-full-width">
           <input matInput placeholder="Latitude" [value]="competitor.Latitud" [(ngModel)]="competitorCopy.Latitud">
         </mat-form-field>  
       </mat-list-item>
