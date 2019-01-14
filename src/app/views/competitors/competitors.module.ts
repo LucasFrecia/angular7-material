@@ -11,6 +11,7 @@ import { CompetitorItemComponent } from '../../core/components/competitor-item/c
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CompetitorsService } from './services/competitors.service';
 import { MaterialModule } from '../../core/modules/material.module';
+import { IdValidatorDirective } from 'src/app/core/directives/id-validator.directive';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { MaterialModule } from '../../core/modules/material.module';
   declarations: [
     CompetitorListComponent,
     ComponentViewComponent,
-    CompetitorItemComponent
+    CompetitorItemComponent,
+    IdValidatorDirective
   ],
   providers: [
     CompetitorsService

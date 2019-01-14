@@ -1,27 +1,170 @@
 <mat-card class="card" @enter-item >
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Create a new Competitor:</mat-card-title>
+    <mat-card-title>
+      Create a new Competitor:
+    </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form class="" 
       #form="ngForm" >
-      <mat-form-field class="example-full-width">
-        <input 
-              matInput 
-              placeholder="Email" 
-              [formControl]="emailFormControl"
-              [errorStateMatcher]="matcher">
+
+      <mat-form-field appearance="outline" style="padding: 15px;">
+        <mat-label>ID</mat-label>
+        <input
+          appIsValidCompetitorId
+          (emitIsValdID)="idValidator($event)"
+          matInput
+          placeholder="Numeric Identifier"
+          name="Id"
+          required
+          [(ngModel)]="competitor.Id"
+          type="number"
+          [errorStateMatcher]="matcher" >
         <mat-error 
-          *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-          Please enter a valid email address
+          *ngIf="competitorFormControl.hasError('required')">
+          ID is <strong>required</strong>
         </mat-error>
         <mat-error 
-          *ngIf="emailFormControl.hasError('required')">
-          Email is <strong>required</strong>
+          *ngIf="!isValidIdInput">
+          ID already <strong>exists</strong>
         </mat-error>
       </mat-form-field>
 
+      <mat-form-field appearance="outline" style="padding: 15px;">
+        <mat-label>Code</mat-label>
+        <input
+          matInput
+          name="Codigo"
+          required
+          [(ngModel)]="competitor.Codigo"
+          type="text"
+          placeholder="Insert code">
+        <mat-hint>Maximum of 9 chars</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="padding: 15px;">
+        <mat-label>Name</mat-label>
+        <input
+          appIsValidCompetitorId
+          (emitIsValdID)="idValidator($event)"
+          matInput
+          placeholder="Insert your name"
+          name="Nombre"
+          required
+          [(ngModel)]="competitor.Nombre"
+          type="text"
+          [errorStateMatcher]="matcher" >
+        <mat-error 
+          *ngIf="competitorFormControl.hasError('required')">
+          Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="padding: 15px;">
+        <mat-label>Street</mat-label>
+        <input
+          appIsValidCompetitorId
+          (emitIsValdID)="idValidator($event)"
+          matInput
+          maxlenth="30"
+          placeholder="Insert your name"
+          name="Calle"
+          required
+          [(ngModel)]="competitor.Calle"
+          type="text"
+          [errorStateMatcher]="matcher" >
+        <mat-error 
+          *ngIf="competitorFormControl.hasError('required')">
+          Streen is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="padding: 15px;">
+        <mat-label>Latitude</mat-label>
+        <input
+          type="number"
+          pattern="^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,6}"
+          matInput
+          placeholder="44.333304"
+          name="Latitud"
+          required
+          [(ngModel)]="competitor.Latitud"
+          [errorStateMatcher]="matcher">
+        <mat-icon matSuffix>location_on</mat-icon>
+        <mat-error 
+          *ngIf="competitorFormControl.hasError('required')">
+          Longitude is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="padding: 15px;">
+        <mat-label>Longitude</mat-label>
+        <input
+          type="number"
+          pattern="^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,6}"
+          matInput
+          placeholder="-89.132027"
+          name="Longitud"
+          required
+          [(ngModel)]="competitor.Longitud"
+          [errorStateMatcher]="matcher">
+        <mat-icon matSuffix>location_on</mat-icon>
+        <mat-error 
+          *ngIf="competitorFormControl.hasError('required')">
+          Longitude is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <section style="padding: 15px;">
+        <mat-slide-toggle
+          class="example-margin"
+          [color]="color"
+          [checked]="checked"
+          name="Marcador"
+          [(ngModel)]="competitor.Marcador">
+          Marker
+        </mat-slide-toggle>
+      </section>
+
+      <section appearance="outline" style="padding: 15px;">
+        <mat-slide-toggle
+          class="example-margin"
+          [color]="color"
+          [checked]="checked"
+          name="Observar"
+          [(ngModel)]="competitor.Observar">
+          Observer
+        </mat-slide-toggle>
+      </section>
+
+      <mat-form-field style="padding: 15px;"> 
+        <select
+          matNativeControl
+          name="MarcaId"
+          required
+          [(ngModel)]="competitor.MarcaId"
+          placeholder="Brand ID"
+          [errorStateMatcher]="matcher" >
+          <option value=""></option>
+          <option value="321321313254" selected>321321313254</option>
+          <option value="765747655462" selected>765747655462</option>
+        </select>
+      </mat-form-field>
+
+      <mat-form-field style="padding: 15px;" >
+        <select
+          matNativeControl
+          name="ZonaDePrecioId"
+          required
+          [(ngModel)]="competitor.ZonaDePrecioId"
+          placeholder="Price Range"
+          [errorStateMatcher]="matcher">
+          <option value=""></option>
+          <option value="1" selected>$ 100.000 - 500.000</option>
+          <option value="2" selected>$ 500.000 - 800.000</option>
+        </select>
+      </mat-form-field>
 
     </form>
   </mat-card-content>
@@ -43,3 +186,59 @@
           </button>
   </mat-card-actions>
 </mat-card>
+
+
+
+
+
+<!--
+  Id: string;
+  Codigo: string;
+  Nombre: string;
+  Calle: string;
+  Latitud: number;
+  Longitud: number;
+  Marcador: boolean;
+  Observar: boolean;
+  MarcaId: number;
+  ZonaDePrecioId: number;
+}
+export interface Competitor {
+  Id: '2',
+  Codigo: 'play',
+  Nombre: 'Crespo',
+  Calle: '9 de Julio',
+  Latitud: -34.6053348,
+  Longitud: -58.3919066,
+  Marcador: false,
+  Observar: true,
+  MarcaId: 2,
+  ZonaDePrecioId: 1
+}
+{"Id":"122",
+"Codigo":"fddsfdsfs",
+"Nombre":"dfdsfdsfd",
+"Calle":"dsadsdsadsadsa",
+"Latitud":44.58585,
+"Longitud":33.528282,
+"Marcador":true,
+"Observar":true,
+"MarcaId":"321321313254",
+"ZonaDePrecioId":"1"}
+
+
+
+interface Marcas {
+  Id: number;
+  Codigo: string;
+  Nombre: string;
+}
+
+interface ZonaDePrecios {
+  Id: number;
+  Codigo: string;
+  Nombre: string;
+}
+
+
+-->

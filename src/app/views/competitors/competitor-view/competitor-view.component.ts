@@ -32,9 +32,14 @@ export class ComponentViewComponent implements OnInit, OnDestroy {
 
   competitors$: Observable<Competitor[]>;
   private subscribers: any = {};
-  emailFormControl = new FormControl('', [
+  public competitor: any = {};
+  private competitorIds: string[];
+
+  public isValidIdInput: boolean;
+
+  competitorFormControl = new FormControl('', [
     Validators.required,
-    Validators.email,
+    Validators.pattern( '^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,6}')
   ]);
 
   matcher = new MyErrorStateMatcher();
@@ -51,14 +56,19 @@ export class ComponentViewComponent implements OnInit, OnDestroy {
     this.subscribers.populateStorage$ = this.store
     .select(fromCompetitorsStore.getEntites)
     .subscribe(competitors => {
-      localStorage.setItem('competitors_ids', JSON.stringify(Object.keys(competitors)));
+      this.competitorIds = Object.keys(competitors);
+      localStorage.setItem('competitors_ids', JSON.stringify(this.competitorIds));
       localStorage.setItem('competitors', JSON.stringify(competitors));
     });
   }
 
-  public addCompetitor(/*competitor: Competitor*/) {
+  public addCompetitor() {
+    this.competitor.Id = `${this.competitor.Id}`;
+    this.competitor.MarcaId = +this.competitor.MarcaId;
+    this.competitor.ZonaDePrecioId = +this.competitor.ZonaDePrecioId;
     console.log('Creating Competitor...');
-   // this.store.dispatch(new competitorsActions.AddCompetitor(competitor));
+    console.log(this.competitor);
+    this.store.dispatch(new competitorsActions.AddCompetitor(this.competitor));
   }
 
   public updateCompetitor(competitor: Competitor) {
@@ -75,6 +85,12 @@ export class ComponentViewComponent implements OnInit, OnDestroy {
   public resetForm() {
     console.log('Resetting form...');
     this.form.resetForm();
+  }
+
+  public idValidator(e) {
+    this.form.controls['Id'].setErrors({'incorrect': e});
+    this.isValidIdInput = e;
+    console.log('final valie: ' + e);
   }
 
   ngOnDestroy() {

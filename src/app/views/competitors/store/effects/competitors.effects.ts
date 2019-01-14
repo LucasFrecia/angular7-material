@@ -16,11 +16,12 @@ export class CompetitorsEffects {
     tap(() => this.competitorsService.listCompetitors())
   );
 
-  @Effect()
-  addCompetitor$ = this.actions$.pipe(
+  @Effect({ dispatch: false })
+  setIsLoading$ = this.actions$.pipe(
     ofType(competitorsActions.ADD_COMPETITOR),
-    map((action: competitorsActions.AddCompetitor) => action.payload),
-    tap(competitor => this.competitorsService.addCompetitor(competitor))
+    map((action: competitorsActions.AddCompetitor) => {
+      return action.payload;
+    })
   );
 
   @Effect()

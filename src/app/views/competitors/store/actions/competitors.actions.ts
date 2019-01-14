@@ -22,6 +22,7 @@ export class AddCompetitor implements Action {
   readonly type = ADD_COMPETITOR;
   constructor(public payload?: Competitor) {}
 }
+
 export class UpdateCompetitor implements Action {
   readonly type = UPDATE_COMPETITOR;
   constructor(public payload?: Competitor) {}
