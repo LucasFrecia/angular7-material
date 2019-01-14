@@ -75,14 +75,16 @@ export function reducer(state = INIT_STATE, action: competitorsActions.All): Sta
 
     case competitorsActions.UPDATE_COMPETITOR : {
       console.log('IN UPDATE COMPETITOR...');
-      
+
       const newState = Object.assign({}, state);
       const competitor = newState.entities[action.payload.Id];
 
       if (!competitor) { // competitor doesn't exist in the store
+      console.log('in if');
         newState.ids = [...newState.ids, action.payload.Id];
         newState.entities[action.payload.Id] = action.payload; // create it
       } else {
+        console.log('in else');
         newState.entities[action.payload.Id] = Object.assign({}, {...competitor}, {...action.payload});
       }
       return newState;
@@ -99,7 +101,7 @@ export function reducer(state = INIT_STATE, action: competitorsActions.All): Sta
 
       const idIndex = newState.ids.indexOf(action.payload.Id);
       newState.ids.splice(idIndex, 1);
-      newState.entities[action.payload.Id] = undefined;
+      delete newState.entities[action.payload.Id];
 
       return newState;
     }
