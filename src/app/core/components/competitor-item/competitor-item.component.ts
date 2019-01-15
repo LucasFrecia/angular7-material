@@ -42,7 +42,7 @@ export class CompetitorItemComponent implements AfterViewInit {
     this.editMode = !this.editMode;
     if (!this.editMode) {
       // reset competitor value on edit cancel
-      this.competitor = this.competitor;
+      this.competitorCopy = this.competitor;
     }
   }
 
