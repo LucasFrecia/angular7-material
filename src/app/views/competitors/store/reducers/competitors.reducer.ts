@@ -94,7 +94,6 @@ export function reducer(state = INIT_STATE, action: competitorsActions.All): Sta
       }
 
       const newState = Object.assign({}, state);
-
       const idIndex = newState.ids.indexOf(action.payload.Id);
       newState.ids.splice(idIndex, 1);
       delete newState.entities[action.payload.Id];

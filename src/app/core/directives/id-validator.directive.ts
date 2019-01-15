@@ -27,7 +27,7 @@ export class IdValidatorDirective implements Validator, OnChanges {
     const getIds = this.store
         .select(fromCompetitorsStore.getIds)
         .subscribe(competitors => {
-            this.competitorIds = Object.keys(competitors);
+            this.competitorIds = Object.values(competitors);
         });
 
     getIds.unsubscribe();

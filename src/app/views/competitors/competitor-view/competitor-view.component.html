@@ -97,7 +97,7 @@
         <mat-icon matSuffix>location_on</mat-icon>
         <mat-error 
           *ngIf="competitorFormControl.hasError('required')">
-          Longitude is <strong>required</strong>
+          Latitude is <strong>required</strong>
         </mat-error>
       </mat-form-field>
 
@@ -119,7 +119,7 @@
         </mat-error>
       </mat-form-field>
 
-      <section >
+      <section style="padding: 20px;" >
         <mat-slide-toggle
           name="Marcador"
           [(ngModel)]="competitor.Marcador">
@@ -127,7 +127,7 @@
         </mat-slide-toggle>
       </section>
 
-      <section appearance="outline" >
+      <section style="padding: 20px;" >
         <mat-slide-toggle
           name="Observar"
           [(ngModel)]="competitor.Observar">
@@ -135,7 +135,7 @@
         </mat-slide-toggle>
       </section>
 
-      <mat-form-field appearance="outline" > 
+      <mat-form-field > 
         <select
           matNativeControl
           name="MarcaId"
@@ -147,9 +147,13 @@
           <option value="321321313254" >321321313254</option>
           <option value="765747655462" >765747655462</option>
         </select>
+        <mat-error 
+          *ngIf="competitorFormControl.hasError('required')">
+          Brand ID is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline"  >
+      <mat-form-field  >
         <select
           matNativeControl
           name="ZonaDePrecioId"
@@ -161,6 +165,10 @@
           <option value="1" >$ 100.000 - 500.000</option>
           <option value="2" >$ 500.000 - 800.000</option>
         </select>
+        <mat-error 
+          *ngIf="competitorFormControl.hasError('required')">
+          Price Range is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
 
     </form>
