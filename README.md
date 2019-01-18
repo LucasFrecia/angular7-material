@@ -55,4 +55,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 **Lucas Frecia**
 
-This was created as a job exam proyect
+This was created as a job exam project
