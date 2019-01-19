@@ -1,3 +1,6 @@
+[Imgur](https://i.imgur.com/RlWEsJh.gifv)
+
+
 ## What's included
 
 * Redux like architecture with @ngrxStore
