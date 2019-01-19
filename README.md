@@ -1,5 +1,4 @@
-[Imgur](https://i.imgur.com/RlWEsJh.gifv)
-
+![](example-gif.gif)
 
 ## What's included
 
