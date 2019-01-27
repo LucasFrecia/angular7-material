@@ -2,6 +2,7 @@
 
 ## What's included
 
+* PWA
 * Redux like architecture with @ngrxStore
 * Angular animations implementation,shared among components
 * @Decorator creation example for unsubscribing automatically from all component subscriptions
