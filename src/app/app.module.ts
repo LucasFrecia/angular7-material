@@ -11,6 +11,7 @@ import * as fromRoot from './core/store';
 import { EffectsModule } from '@ngrx/effects';
 import { UiEffects } from './core/store/effects/ui.effects';
 import { SnackbarEffects } from './core/store/effects/snackbar.effects';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,8 @@ import { SnackbarEffects } from './core/store/effects/snackbar.effects';
     CoreModule.forRoot(),
     StoreModule.forRoot(fromRoot.reducers),
     EffectsModule.forRoot([SnackbarEffects, UiEffects]),
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
